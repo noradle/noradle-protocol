@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:noradle/noradle-protocol.git"
+  },
   "keywords": [
     "noradle",
     "protocol"
@@ -14,5 +18,9 @@
     "debug": "~2.1.1"
   },
   "author": "kaven276@vip.sina.com",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noradle/noradle-protocol/issues"
+  },
+  "homepage": "https://github.com/noradle/noradle-protocol"
 }
