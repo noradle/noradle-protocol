@@ -14,13 +14,15 @@
     "noradle",
     "protocol"
   ],
+  "engines": {"node": ">=0.10"},
   "dependencies": {
     "debug": "~2.1.1"
   },
   "author": "kaven276@vip.sina.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/noradle/noradle-protocol/issues"
+    "url": "https://github.com/noradle/noradle-protocol/issues",
+    "email": "kaven276@vip.sina.com"
   },
   "homepage": "https://github.com/noradle/noradle-protocol"
 }
