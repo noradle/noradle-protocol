@@ -27,49 +27,22 @@ exports.writeFrame = function(stream, slotID, type, flag, body){
 };
 
 /**
- * send its magic number to the peer
- * receive magic number of the peer
- * and then receive and parse the arriving frame
+ * receive and parse the arriving frame
  * and make frame event to listener
  * @param c the stream/socket/connection that's just connected
- * @param magicNumber1 magic number of self to send to the peer
- * @param magicNumber2 magic number of the peer to receive for self
  * @param listener accept whole frame data, with head parsed
  */
-exports.wrapFrameStream = function(c, magicNumber1, magicNumber2CB, listener){
-  var check = false, head, slotID, type, flag, len, body, magicNumber2;
-
-  bytes4.writeInt32BE(magicNumber1, 0);
-  c.write(bytes4);
-
-  if (typeof magicNumber2CB === 'number') {
-    var magicNumber2 = magicNumber2CB;
-    magicNumber2CB = function(mm){
-      return mm === magicNumber2;
-    };
-  }
+exports.parseFrameStream = function(c, listener){
+  var check = false, head, slotID, type, flag, len, body;
 
   c.on('readable', parse);
   if (listener) {
     c.on('frame', listener);
+    debug('registered on.frame');
   }
 
   function parse(){
     var data;
-
-    if (!check) {
-      data = c.read(4);
-      if (data === null) return;
-      magicNumber2 = data.readInt32BE(0);
-      if (!magicNumber2CB(magicNumber2)) {
-        debug('onHandshake magic number is wrong', data.readInt32BE(0), magicNumber2);
-        c.end();
-        c.destroy();
-        return;
-      }
-      check = true;
-      debug('check magic number ok');
-    }
 
     if (!head) {
       head = c.read(8);
@@ -85,8 +58,9 @@ exports.wrapFrameStream = function(c, magicNumber1, magicNumber2CB, listener){
       if (body === null) return;
     }
 
-    debug('read frame', magicNumber2, head, slotID, type, flag, len);
+    debug('read frame', head, slotID, type, flag, len);
     c.emit('frame', head, slotID, type, flag, len, body);
+    debug('emited frame');
     head = body = undefined;
     parse();
   }
