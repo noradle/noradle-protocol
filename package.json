@@ -1,6 +1,6 @@
 {
   "name": "noradle-protocol",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "communication procolcol for noradle between node.js and oracle processes",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,9 @@
     "noradle",
     "protocol"
   ],
-  "engines": {"node": ">=0.10"},
+  "engines": {
+    "node": ">=0.10"
+  },
   "dependencies": {
     "debug": "~2.1.1"
   },
