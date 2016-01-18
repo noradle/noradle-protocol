@@ -8,7 +8,6 @@ module.exports = {
   MONITOR : 197610264,
 
   CTL_FRAME : 0,
-  AUTH_DATA : 0,
   ADD_SLOT : 1,
   DEL_SLOT : 2,
   SET_CONCURRENCY : 3,
