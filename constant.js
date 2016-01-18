@@ -11,6 +11,8 @@ module.exports = {
   ADD_SLOT : 1,
   DEL_SLOT : 2,
   SET_CONCURRENCY : 3,
+  REQ_CLI_CFG : 4,
+  RES_CLI_CFG : 5,
   RO_QUIT : 255,
   WC_QUIT : 255,
 
