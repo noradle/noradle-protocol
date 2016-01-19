@@ -8,6 +8,16 @@ var debug = require('debug')('noradle:frame')
   , bytes4 = new Buffer(4)
   ;
 
+exports.makeFrameHead = function(slotID, type, flag, len){
+  // debug('before write frame', slotID, type, flag);
+  var head = new Buffer(8);
+  head.writeInt16BE(slotID, 0);
+  head.writeUInt8(type, 2);
+  head.writeUInt8(flag, 3);
+  head.writeInt32BE(len, 4);
+  return head;
+};
+
 exports.writeFrame = function(stream, slotID, type, flag, body){
   // debug('before write frame', slotID, type, flag);
   var head = new Buffer(8), w1, w2;
