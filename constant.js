@@ -22,6 +22,7 @@ module.exports = {
   STYLE_FRAME : 3,
   EMBED_FRAME : 4,
   HASH_FRAME : 5,
+  PRE_HEAD : 253,
   ERROR_FRAME : 254,
   END_FRAME : 255,
 
