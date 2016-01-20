@@ -7,6 +7,12 @@ module.exports = {
   CLIENT : 197610263,
   MONITOR : 197610264,
 
+  /* typeof protocol send to and receive from oracle*/
+  NORADLE : 0,
+  HTTP : 1,
+  SCGI : 2,
+  FCGI : 3,
+
   CTL_FRAME : 0,
   ADD_SLOT : 1,
   DEL_SLOT : 2,
