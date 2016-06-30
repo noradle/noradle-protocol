@@ -59,6 +59,7 @@ exports.parseFrameStream = function(c, listener){
     }
     if (!body && bLen) {
       body = c.read(bLen);
+	  if(!body) return;
       debug('body: len=%d', body.length);
       if (!body) return;
       if (type === exports.PARAMS) {
