@@ -17,7 +17,7 @@ typedef struct {
 } FCGI_Record;
 */
 
-var debug = require('debug')('dispatcher:FCGI')
+var debug = require('debug')('noradle:fcgi')
   ;
 
 exports.BEGIN = 1;
