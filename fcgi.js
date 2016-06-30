@@ -62,9 +62,9 @@ exports.parseFrameStream = function(c, listener){
       debug('body: len=%d', body.length);
       if (!body) return;
       if (type === exports.PARAMS) {
-        debug('body: %s', body.slice(0, cLen).toString());
+        debug('body: %s', body.slice(0, 8).toString());
       } else {
-        debug('body: ', body);
+        debug('body: %s', body.slice(0, 8).toString());
       }
     }
     debug('read frame complete');
